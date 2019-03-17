@@ -1,11 +1,11 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v2.1",
+    "name": ".NETCoreApp,Version=v2.2",
     "signature": "8ec1350539dab198133f64fe7d0923cad638e61d"
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v2.1": {
+    ".NETCoreApp,Version=v2.2": {
       "PortalEmpregos.Persistence/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "2.1.4",
@@ -334,14 +334,7 @@
           "System.Runtime": "4.1.0"
         }
       },
-      "System.Diagnostics.DiagnosticSource/4.5.1": {
-        "runtime": {
-          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {
-            "assemblyVersion": "4.0.3.1",
-            "fileVersion": "4.6.26919.2"
-          }
-        }
-      },
+      "System.Diagnostics.DiagnosticSource/4.5.1": {},
       "System.Globalization/4.0.11": {
         "dependencies": {
           "System.Runtime": "4.1.0"
