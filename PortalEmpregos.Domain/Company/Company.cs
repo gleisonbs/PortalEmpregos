@@ -2,7 +2,7 @@ using System;
 
 namespace PortalEmpregos.Domain.Model
 {
-    public class Company
+    public class Company : ICompany
     {
 		private Company() { /* for EF Core */ }
 

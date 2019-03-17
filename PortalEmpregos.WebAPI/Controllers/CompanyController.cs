@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using PortalEmpregos.Domain.Model;
+using PortalEmpregos.Domain;
+using PortalEmpregos.Persistence;
 
 namespace PortalEmpregos.WebAPI.Controllers
 {
@@ -13,22 +14,22 @@ namespace PortalEmpregos.WebAPI.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Company>> Get()
+        public ActionResult<IEnumerable<ICompany>> Get()
         {
-			List<Company> companies = new List<Company>();
-            Company company1 = new Company(Guid.NewGuid(), "Company 1");
-            Company company2 = new Company(Guid.NewGuid(), "Company 2");
-            Company company3 = new Company(Guid.NewGuid(), "Company 3");
+            List<Company> companies = new List<Company>();
+            ICompany company1 = new Company(Guid.NewGuid(), "Company 1");
+            ICompany company2 = new Company(Guid.NewGuid(), "Company 2");
+            ICompany company3 = new Company(Guid.NewGuid(), "Company 3");
             return new List<Company>() {company1, company2, company3};
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<Company> Get(int id)
+        public ActionResult<ICompany> Get(int id)
         {
-            Company company = new Company(Guid.NewGuid(), "Company teste");
-			Console.WriteLine($"{company.Id} -> {company.Name}");
-			return company;
+            ICompany company = new Company(Guid.NewGuid(), "Company teste");
+            Console.WriteLine($"{company.Id} -> {company.Name}");
+            return company;
         }
 
         // PUT api/values/5

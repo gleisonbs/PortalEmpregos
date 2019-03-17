@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PortalEmpregos.Domain\PortalEmpregos.Domain.csproj" />
+    <ProjectReference Include="..\PortalEmpregos.Persistence\PortalEmpregos.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
