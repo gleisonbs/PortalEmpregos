@@ -1,8 +1,8 @@
 using System;
 
-namespace PortalEmpregos.Domain.Model
+namespace PortalEmpregos.Domain
 {
-    public class Curriculum
+    public class Curriculum : ICurriculum
     {
 		private Curriculum() { /* for EF Core */ }
 

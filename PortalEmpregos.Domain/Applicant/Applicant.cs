@@ -1,8 +1,8 @@
 using System;
 
-namespace PortalEmpregos.Domain.Model
+namespace PortalEmpregos.Domain
 {
-    public class Applicant
+    public class Applicant : IApplication
     {
 		private Applicant() { /* for EF Core */ }
 

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PortalEmpregos.Domain.Model;
+using PortalEmpregos.Domain;
 
 namespace PortalEmpregos.Persistence
 {
@@ -7,7 +7,7 @@ namespace PortalEmpregos.Persistence
     {
         public PortalEmpregosDbContext(DbContextOptions<PortalEmpregosDbContext> options) : base(options) { }
 
-        public DbSet<Company> Company { get; set; }
+        public DbSet<ICompany> Company { get; set; }
     }
 }
 

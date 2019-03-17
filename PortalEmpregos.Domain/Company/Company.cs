@@ -1,6 +1,6 @@
 using System;
 
-namespace PortalEmpregos.Domain.Model
+namespace PortalEmpregos.Domain
 {
     public class Company : ICompany
     {

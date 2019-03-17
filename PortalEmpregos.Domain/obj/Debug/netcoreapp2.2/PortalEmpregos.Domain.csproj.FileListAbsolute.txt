@@ -1,9 +1,0 @@
-/home/cafeina/source codes/PortalEmpregos/PortalEmpregos.Domain/obj/Debug/netcoreapp2.2/PortalEmpregos.Domain.csprojAssemblyReference.cache
-/home/cafeina/source codes/PortalEmpregos/PortalEmpregos.Domain/obj/Debug/netcoreapp2.2/PortalEmpregos.Domain.csproj.CoreCompileInputs.cache
-/home/cafeina/source codes/PortalEmpregos/PortalEmpregos.Domain/obj/Debug/netcoreapp2.2/PortalEmpregos.Domain.AssemblyInfoInputs.cache
-/home/cafeina/source codes/PortalEmpregos/PortalEmpregos.Domain/obj/Debug/netcoreapp2.2/PortalEmpregos.Domain.AssemblyInfo.cs
-/home/cafeina/source codes/PortalEmpregos/PortalEmpregos.Domain/bin/Debug/netcoreapp2.2/PortalEmpregos.Domain.deps.json
-/home/cafeina/source codes/PortalEmpregos/PortalEmpregos.Domain/bin/Debug/netcoreapp2.2/PortalEmpregos.Domain.dll
-/home/cafeina/source codes/PortalEmpregos/PortalEmpregos.Domain/bin/Debug/netcoreapp2.2/PortalEmpregos.Domain.pdb
-/home/cafeina/source codes/PortalEmpregos/PortalEmpregos.Domain/obj/Debug/netcoreapp2.2/PortalEmpregos.Domain.dll
-/home/cafeina/source codes/PortalEmpregos/PortalEmpregos.Domain/obj/Debug/netcoreapp2.2/PortalEmpregos.Domain.pdb
