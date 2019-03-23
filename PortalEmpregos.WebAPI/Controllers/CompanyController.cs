@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PortalEmpregos.Domain;
 using PortalEmpregos.Persistence;
+using PortalEmpregos.Persistence.Repository.Company;
 
 namespace PortalEmpregos.WebAPI.Controllers
 {
@@ -13,25 +14,25 @@ namespace PortalEmpregos.WebAPI.Controllers
     [ApiController]
     public class CompanyController : ControllerBase
     {
-        private readonly PortalEmpregosDbContext _context;
-
-        public CompanyController(PortalEmpregosDbContext context)
+        private readonly CompanyRepository context;
+        public CompanyController()
         {
-            _context = context;
+            context = new CompanyRepository();
         }
-
         // GET api/values
+
         [HttpGet]
         public IEnumerable<ICompany> Get()
         {
-            ICompany company1 = new Company(Guid.NewGuid(), "Company 1");
-            ICompany company2 = new Company(Guid.NewGuid(), "Company 2");
-            ICompany company3 = new Company(Guid.NewGuid(), "Company 3");
-            _context.Company.Add(company1);
-            _context.Company.Add(company2);
-            _context.Company.Add(company3);
-            _context.SaveChangesAsync();
-            return new List<ICompany>() {company1, company2, company3};
+            return context.List();
+            //Company company1 = new Company(Guid.NewGuid(), "Company 1");
+            //Company company2 = new Company(Guid.NewGuid(), "Company 2");
+            //Company company3 = new Company(Guid.NewGuid(), "Company 3");
+            //_context.Company.Add(company1);
+            //_context.Company.Add(company2);
+            //_context.Company.Add(company3);
+            //_context.SaveChangesAsync();
+            //return new List<ICompany>() {company1, company2, company3};
         }
 
         // GET api/values/5

@@ -7,7 +7,7 @@ namespace PortalEmpregos.Persistence
     {
         public PortalEmpregosDbContext(DbContextOptions<PortalEmpregosDbContext> options) : base(options) { }
 
-        public DbSet<ICompany> Company { get; set; }
+        public DbSet<Company> Company { get; set; }
     }
 }
 
