@@ -24,6 +24,11 @@ namespace PortalEmpregos.WebAPI.Controllers
         [HttpGet]
         public IEnumerable<ICompany> Get()
         {
+            Random rnd = new Random();
+            string compName = $"Company {rnd.Next(100, 999)}";
+            Company comp = new Company(Guid.NewGuid(), compName);
+
+            context.Add(comp);
             return context.List();
             //Company company1 = new Company(Guid.NewGuid(), "Company 1");
             //Company company2 = new Company(Guid.NewGuid(), "Company 2");

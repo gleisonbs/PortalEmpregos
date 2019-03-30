@@ -16,12 +16,18 @@ namespace PortalEmpregos.Persistence.Repository.Company
 
         public CompanyRepository()
         {
-            context = DbHelper.Context;
+            context = new PortalEmpregosDbContext();
         }
 
         public IEnumerable<ICompany> List()
         {
             return context.Company.ToList();
+        }
+
+        public void Add(ICompany company)
+        {
+            context.Add(company);
+            context.SaveChanges();
         }
     }
 }
