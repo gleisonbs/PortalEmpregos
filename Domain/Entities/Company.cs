@@ -1,8 +1,8 @@
 using System;
 
-namespace PortalEmpregos.Domain
+namespace PortalEmpregos.Domain.Entities
 {
-    public class Company : ICompany
+    public class Company
     {
 		private Company() { /* for EF Core */ }
 

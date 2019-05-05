@@ -1,0 +1,12 @@
+using System;
+using System.Collections.Generic;
+using PortalEmpregos.Domain.Entities;
+
+namespace PortalEmpregos.Domain.Interfaces.Repositories
+{
+    public interface ICompanyRepository : IRepository<Company>
+    {
+        IEnumerable<Company> GetCompaniesWithMostJobOpenings(int companiesCount);
+    }
+}
+

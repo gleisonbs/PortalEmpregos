@@ -25,7 +25,7 @@ namespace PortalEmpregos.Persistence
             var basePath = Directory.GetCurrentDirectory();
             Console.WriteLine(basePath);
             basePath = basePath.Substring(0, basePath.LastIndexOf("/"));
-            basePath = Path.Join(basePath, "PortalEmpregos.Persistence");
+            basePath = Path.Join(basePath, "Persistence");
             Console.WriteLine(basePath);
 
             var configuration = new ConfigurationBuilder()
