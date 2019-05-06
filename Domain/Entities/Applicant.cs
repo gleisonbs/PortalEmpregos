@@ -2,7 +2,7 @@ using System;
 
 namespace PortalEmpregos.Domain
 {
-    public class Applicant : IApplication
+    public class Applicant
     {
 		private Applicant() { /* for EF Core */ }
 

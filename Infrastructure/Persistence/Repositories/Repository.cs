@@ -1,6 +1,9 @@
 using System;
+using System.Data.Entity;
+using System.Linq.Expressions;
+using System.Collections.Generic;
 using PortalEmpregos.Infrastructure.Persistence;
-using PortalEmpregos.Domain.Interfaces;
+using PortalEmpregos.Domain.Interfaces.Repositories;
 
 namespace PortalEmpregos.Infrastructure.Persistence.Repositories
 {

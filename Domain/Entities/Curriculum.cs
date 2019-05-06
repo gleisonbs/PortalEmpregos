@@ -2,7 +2,7 @@ using System;
 
 namespace PortalEmpregos.Domain
 {
-    public class Curriculum : ICurriculum
+    public class Curriculum
     {
 		private Curriculum() { /* for EF Core */ }
 

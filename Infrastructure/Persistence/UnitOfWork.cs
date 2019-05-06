@@ -1,4 +1,6 @@
 using PortalEmpregos.Domain.Interfaces;
+using PortalEmpregos.Domain.Interfaces.Repositories;
+using PortalEmpregos.Infrastructure.Persistence.Repositories;
 
 namespace PortalEmpregos.Infrastructure.Persistence
 {
@@ -10,7 +12,7 @@ namespace PortalEmpregos.Infrastructure.Persistence
         public UnitOfWork(PortalEmpregosDbContext context)
         {
             _context = context;
-            Company = new CompanyRepository(_context);
+            Companies = new CompanyRepository(_context);
         }
 
         public int Complete() => _context.SaveChanges();

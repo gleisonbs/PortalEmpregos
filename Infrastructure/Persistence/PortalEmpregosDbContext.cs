@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore.Design;
-using PortalEmpregos.Domain;
+using PortalEmpregos.Domain.Entities;
 
-namespace PortalEmpregos.Persistence
+namespace PortalEmpregos.Infrastructure.Persistence
 {
     public class PortalEmpregosDbContext : DbContext
     {
