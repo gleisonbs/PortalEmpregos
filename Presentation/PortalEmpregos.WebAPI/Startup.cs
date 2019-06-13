@@ -11,7 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using PortalEmpregos.Persistence;
+using PortalEmpregos.Infrastructure.Persistence;
+using StackExchange.Redis;
 
 namespace PortalEmpregos.WebAPI
 {
@@ -27,6 +28,9 @@ namespace PortalEmpregos.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var db = RedisCache.Instance;
+            services.AddSingleton<IDatabase>(RedisCache.Instance);
+            services.AddScoped<PortalEmpregosDbContext, PortalEmpregosDbContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

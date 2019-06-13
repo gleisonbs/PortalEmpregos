@@ -1,22 +1,27 @@
 using System;
 using System.Data.Entity;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using StackExchange.Redis;
 using PortalEmpregos.Infrastructure.Persistence;
 using PortalEmpregos.Domain.Interfaces.Repositories;
+using PortalEmpregos.Domain.Entities;
 
 namespace PortalEmpregos.Infrastructure.Persistence.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private PortalEmpregosDbContext _context;
+        protected PortalEmpregosDbContext _context;
+        protected IDatabase _cache;
 
-        public Repository(PortalEmpregosDbContext context)
+        public Repository(PortalEmpregosDbContext context, IDatabase cache)
         {
             _context = context;
+            _cache = cache;
         }
 
-        public TEntity Get(int id)
+        public TEntity Get(Guid id)
         {
             return _context.Set<TEntity>().Find(id);
         }
@@ -33,22 +38,22 @@ namespace PortalEmpregos.Infrastructure.Persistence.Repositories
 
         public void Add(TEntity entity)
         {
-            _context.Set<TEntity().Add(entity);
+            _context.Set<TEntity>().Add(entity);
         }
 
         public void AddRange(IEnumerable<TEntity> entities)
         {
-            _context.Set<TEntity().AddRange(entities);
+            _context.Set<TEntity>().AddRange(entities);
         }
 
         public void Remove(TEntity entity)
         {
-            _context.Set<TEntity().Remove(entity);
+            _context.Set<TEntity>().Remove(entity);
         }
 
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
-            _context.Set<TEntity().RemoveRange(entities);
+            _context.Set<TEntity>().RemoveRange(entities);
         }
     }
 }

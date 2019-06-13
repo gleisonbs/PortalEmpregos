@@ -11,8 +11,8 @@ namespace PortalEmpregos.Infrastructure.Persistence
 {
     public class PortalEmpregosDbContext : DbContext
     {
-        public static readonly string ConnectionStringName = "PortalEmpregosConnectionString";
-        public static readonly string AspNetCoreEnvironment = "ASPNETCORE_ENVIRONMENT";
+        private static readonly string ConnectionStringName = "PortalEmpregosConnectionString";
+        private static readonly string AspNetCoreEnvironment = "ASPNETCORE_ENVIRONMENT";
 
         public PortalEmpregosDbContext() : base() { }
 
@@ -25,7 +25,7 @@ namespace PortalEmpregos.Infrastructure.Persistence
             var basePath = Directory.GetCurrentDirectory();
             Console.WriteLine(basePath);
             basePath = basePath.Substring(0, basePath.LastIndexOf("/"));
-            basePath = Path.Join(basePath, "Persistence");
+            basePath = Path.Join(basePath, "../Infrastructure/Persistence");
             Console.WriteLine(basePath);
 
             var configuration = new ConfigurationBuilder()
