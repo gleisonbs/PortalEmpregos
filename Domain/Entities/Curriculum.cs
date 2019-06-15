@@ -1,6 +1,6 @@
 using System;
 
-namespace PortalEmpregos.Domain
+namespace PortalEmpregos.Domain.Entities
 {
     public class Curriculum
     {

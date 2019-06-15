@@ -30,6 +30,7 @@ namespace PortalEmpregos.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<CompanyService, CompanyService>();
+            services.AddScoped<JobOpeningService, JobOpeningService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

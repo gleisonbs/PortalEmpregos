@@ -10,34 +10,39 @@ namespace PortalEmpregos.Application.Services
 {
     public class CompanyService : Service
     {
-        public IEnumerable<Company> GetAll()
+        public IEnumerable<CompanyDTO> GetAll()
         {
             using (var unitOfWork = new UnitOfWork(_context, _cache))
             {
                 var companies = unitOfWork.Companies.GetAll();
-                return companies;
+                var companiesDTO = _mapper.Map<List<CompanyDTO>>(companies);
+
+                return companiesDTO;
             }
         }
 
-        public Company Get(Guid id)
+        public CompanyDTO Get(Guid id)
         {
             using (var unitOfWork = new UnitOfWork(_context, _cache))
             {
-                Company company = unitOfWork.Companies.Get(id);
-                return company;
+                var company = unitOfWork.Companies.Get(id);
+                var companyDTO = _mapper.Map<CompanyDTO>(company);
+
+                return companyDTO;
             }
         }
 
-        public Company Add(CompanyDTO companyDTO)
+        public CompanyDTO Add(CompanyDTO companyDTO)
         {
             using (var unitOfWork = new UnitOfWork(_context, _cache))
             {
                 var company = new Company(Guid.NewGuid(), companyDTO.Name);
+                var companyDTOout = _mapper.Map<CompanyDTO>(company);
                 
                 unitOfWork.Companies.Add(company);
                 unitOfWork.Complete();
 
-                return company;
+                return companyDTOout;
             }
         }
     }

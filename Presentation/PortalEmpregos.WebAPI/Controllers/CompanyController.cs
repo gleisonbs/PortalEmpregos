@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PortalEmpregos.Domain.Entities;
 using PortalEmpregos.Application.Services;
-using AutoMapper;
 
 namespace PortalEmpregos.WebAPI.Controllers
 {
@@ -20,18 +19,16 @@ namespace PortalEmpregos.WebAPI.Controllers
         public ActionResult Get()
         {
             var companies = _companyService.GetAll();
-            var companiesDTO = _mapper.Map<List<CompanyDTO>>(companies);
 
-            return Ok(companiesDTO);
+            return Ok(companies);
         }
 
         [HttpGet("{id}")]
         public ActionResult Get(Guid id)
         {
             var company = _companyService.Get(id);
-            var companyDTO = _mapper.Map<CompanyDTO>(company);
 
-            return Ok(companyDTO);
+            return Ok(company);
         }
 
         [HttpPost("add")]
@@ -39,7 +36,7 @@ namespace PortalEmpregos.WebAPI.Controllers
         {
             var company = _companyService.Add(companyDTO);
 
-            return Created($"api/Company/{company.Id.ToString()}", companyDTO);
+            return Created($"api/Company/{company.Id.ToString()}", company);
         }
     }
 }

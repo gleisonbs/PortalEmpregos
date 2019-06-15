@@ -17,6 +17,7 @@ namespace PortalEmpregos.Infrastructure.Persistence
         public PortalEmpregosDbContext() : base() { }
 
         public DbSet<Company> Company { get; set; }
+        public DbSet<JobOpening> JobOpening { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

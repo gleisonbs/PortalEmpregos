@@ -10,16 +10,5 @@ using AutoMapper;
 
 namespace PortalEmpregos.WebAPI.Controllers
 {
-    public class BaseController : ControllerBase
-    {
-        protected IMapper _mapper;
-        public BaseController()
-        {
-            var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Company, CompanyDTO>();
-            });
-
-            _mapper = config.CreateMapper();
-        }
-    }
+    public class BaseController : ControllerBase {}
 }

@@ -10,9 +10,9 @@ using StackExchange.Redis;
 
 namespace PortalEmpregos.Infrastructure.Persistence
 {
-    public class RedisCache
+    public class RedisSingleton
     {
-        private RedisCache() {}
+        private RedisSingleton() {}
 
         private static readonly IDatabase _instance = ConnectionMultiplexer.Connect("localhost").GetDatabase();
         public static IDatabase Instance 

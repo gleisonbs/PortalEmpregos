@@ -11,12 +11,14 @@ namespace PortalEmpregos.Infrastructure.Persistence
         private readonly IDatabase _cache;
 
         public ICompanyRepository Companies { get; private set; }
+        public IJobOpeningRepository JobOpenings { get; private set; }
 
         public UnitOfWork(PortalEmpregosDbContext context, IDatabase cache)
         {
             _context = context;
             _cache = cache;
             Companies = new CompanyRepository(_context, _cache);
+            JobOpenings = new JobOpeningRepository(_context, _cache);
         }
 
         public int Complete()
