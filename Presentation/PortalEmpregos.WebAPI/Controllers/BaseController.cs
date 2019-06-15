@@ -4,21 +4,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PortalEmpregos.Infrastructure.Persistence;
 using PortalEmpregos.Domain.Entities;
-using StackExchange.Redis;
+using PortalEmpregos.Application.Services;
+using AutoMapper;
 
 namespace PortalEmpregos.WebAPI.Controllers
 {
     public class BaseController : ControllerBase
     {
-        protected IDatabase _cache = null;
-        protected PortalEmpregosDbContext _context = null;
-
-        public BaseController(PortalEmpregosDbContext context, IDatabase cache)
+        protected IMapper _mapper;
+        public BaseController()
         {
-            _context = context;
-            _cache = cache;
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Company, CompanyDTO>();
+            });
+
+            _mapper = config.CreateMapper();
         }
     }
 }

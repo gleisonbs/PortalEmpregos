@@ -6,14 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="automapper" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\Persistence\PortalEmpregos.Persistence.csproj" />
     <ProjectReference Include="..\..\Domain\PortalEmpregos.Domain.csproj" />
+    <ProjectReference Include="..\..\Application\PortalEmpregos.Application.csproj" />
   </ItemGroup>
 
 </Project>

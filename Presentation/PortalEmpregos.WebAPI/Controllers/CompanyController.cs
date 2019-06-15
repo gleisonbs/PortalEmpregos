@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using PortalEmpregos.Infrastructure.Persistence;
 using PortalEmpregos.Domain.Entities;
-using StackExchange.Redis;
+using PortalEmpregos.Application.Services;
+using AutoMapper;
 
 namespace PortalEmpregos.WebAPI.Controllers
 {
@@ -14,27 +13,33 @@ namespace PortalEmpregos.WebAPI.Controllers
     [ApiController]
     public class CompanyController : BaseController
     {
-        public CompanyController(PortalEmpregosDbContext context, IDatabase cache) : base(context, cache) {}
+        protected CompanyService _companyService;
+        public CompanyController(CompanyService companyService) => _companyService = companyService;
 
         [HttpGet]
-        public IEnumerable<Company> Get()
+        public ActionResult Get()
         {
-            using (var unitOfWork = new UnitOfWork(_context, _cache))
-            {
-                var companies = unitOfWork.Companies.GetAll();
-                return companies;
-            }
+            var companies = _companyService.GetAll();
+            var companiesDTO = _mapper.Map<List<CompanyDTO>>(companies);
+
+            return Ok(companiesDTO);
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
-        public Company Get(Guid id)
+        public ActionResult Get(Guid id)
         {
-            using (var unitOfWork = new UnitOfWork(_context, _cache))
-            {
-                Company company = unitOfWork.Companies.Get(id);
-                return company;
-            }
+            var company = _companyService.Get(id);
+            var companyDTO = _mapper.Map<CompanyDTO>(company);
+
+            return Ok(companyDTO);
+        }
+
+        [HttpPost("add")]
+        public ActionResult Add(CompanyDTO companyDTO) 
+        {
+            var company = _companyService.Add(companyDTO);
+
+            return Created($"api/Company/{company.Id.ToString()}", companyDTO);
         }
     }
 }
